@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Test on save (backend/frontend)",
+      "trigger": "PostFileSave",
+      "description": "Runs the unit test suite for both workspaces whenever a source file under backend/ or frontend/ is saved.",
+      "matcher": "(backend|frontend)/.*\\.(ts|tsx|vue|js|mjs|cjs|json)$",
+      "action": {
+        "type": "command",
+        "command": "npm test",
+        "timeout": 180
+      },
+      "enabled": false
+    }
+  ]
+}
