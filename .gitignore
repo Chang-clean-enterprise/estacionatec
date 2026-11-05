@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+
+# Local env files (copy from .env.example)
+.env
+.env.local
+
+# CloudFormation packaging output
+infra/.packaged.yaml
