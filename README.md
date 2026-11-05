@@ -40,6 +40,30 @@ npm run db:down      # Turn Off DB container
 ```
 
 
+## Simulating parking activity
+
+With the database up and seeded, you can run a simulator that continuously flips
+random slots between available and occupied across every campus and parking. It's
+handy for watching the UI update live. It runs in the foreground, logs each change,
+and stops with Ctrl+C.
+
+```bash
+npm run simulate -w backend
+```
+
+Tunable via env vars:
+
+- `SIMULATE_INTERVAL_MS` — milliseconds between ticks (default 3000)
+- `SIMULATE_CHANGES_PER_TICK` — slots changed per tick (default 5)
+
+```bash
+SIMULATE_INTERVAL_MS=1000 SIMULATE_CHANGES_PER_TICK=3 npm run simulate -w backend
+```
+
+It uses the same config as the server, so it targets dynamodb-local by default. If
+you point it at AWS (unset `DYNAMODB_ENDPOINT`), it writes continuously to the live
+table — don't run it against production data.
+
 ## Tests
 
 ```bash

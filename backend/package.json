@@ -10,7 +10,8 @@
     "build": "tsc --noEmit && node --import tsx scripts/bundle.ts",
     "test": "vitest run",
     "db:create-table": "node --env-file-if-exists=.env --import tsx scripts/createTable.ts",
-    "db:seed": "node --env-file-if-exists=.env --import tsx scripts/seed.ts"
+    "db:seed": "node --env-file-if-exists=.env --import tsx scripts/seed.ts",
+    "simulate": "node --env-file-if-exists=.env --import tsx scripts/simulate.ts"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "3.1161.0",
